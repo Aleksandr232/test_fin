@@ -1,0 +1,83 @@
+.main{
+    position: absolute;
+    width: 1920px;
+    height: 2233px;
+    background: #F8F8FA;
+}
+
+.main_text{
+    position: absolute;
+    width: 118px;
+    height: 49px;
+    left: 360px;
+    top: 100px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 49px;
+    /* identical to box height */
+    color: #351768;
+}
+
+.main_center{
+    position: absolute;
+    left: 18.75%;
+    right: 18.75%;
+    top: 8.91%;
+    bottom: 4.48%;
+    background: #FFFFFF;
+    border-radius: 4px;
+}
+
+.main_info{
+    position: absolute;
+    width: 296px;
+    height: 22px;
+    left: 30px;
+    top: 40px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #211536;
+}
+
+.main_organizer{
+    position: absolute;
+    width: 112px;
+    height: 20px;
+    left: 30px;
+    top: 102px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #211536;
+}
+
+.main_input{
+    box-sizing: border-box;
+    position: absolute;
+    width: 1141px;
+    height: 58px;
+    left: 30px;
+    top: 132px;
+    border: 1px solid #CDB1FB;
+    border-radius: 4px;
+}
+
+::placeholder{
+    position: absolute;
+    top: 18px;
+    left: 25px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #211536;
+    transform: rotate(-0.02deg);
+}
