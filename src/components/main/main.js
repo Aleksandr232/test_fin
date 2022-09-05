@@ -1,9 +1,15 @@
+import { useState } from 'react'
 
 import './main.scss'
 
 export function Main(){
+    const [file, setFile] = useState()
+
+  function handleChange(event) {
+    setFile(event.target.files[0])
+  }
     return(
-        <div className='main'>
+        <section className='main'>
             <div className='main_text'>Шаг 1</div>
                 <div className='main_center'>
                     <div className='main_info'>
@@ -24,7 +30,10 @@ export function Main(){
                     <div className='main_title'>Название</div>
                     <input type="text" className='main_input_title' />
                         <div className='main_photo'>Фотография</div>
+                    <input type="file" className='main_input_photo' onChange={handleChange} />
+                        <div className='main_description'>Подробное описание</div>
+                    <input type="text" className='main_input_description' />
                 </div>
-        </div>
+        </section>
     )
 }
