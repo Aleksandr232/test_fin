@@ -170,3 +170,56 @@
     border: 1px solid #CDB1FB;
     border-radius: 4px;
 }
+
+.main_about_info{
+    position: absolute;
+    width: 197px;
+    height: 22px;
+    left: 30px;
+    top: 410px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #211536;
+}
+
+.main_title{
+    position: absolute;
+    width: 84px;
+    height: 20px;
+    left: 30px;
+    top: 462px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #211536;
+}
+
+.main_input_title{
+    box-sizing: border-box;
+    position: absolute;
+    width: 1137px;
+    height: 58px;
+    left: 30px;
+    top: 492px;
+    border: 1px solid #CDB1FB;
+    border-radius: 4px;
+}
+
+.main_photo{
+    position: absolute;
+    width: 107px;
+    height: 20px;
+    left: 30px;
+    top: 590px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #211536;
+}
