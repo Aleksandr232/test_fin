@@ -86,7 +86,7 @@
     position: absolute;
     width: 195px;
     height: 22px;
-    left: 20px;
+    left: 29px;
     top: 230px;
     font-family: 'Montserrat';
     font-style: normal;
@@ -100,12 +100,73 @@
     position: absolute;
     width: 75px;
     height: 20px;
-    left: 389px;
-    top: 481px;
+    left: 29px;
+    top: 282px;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 20px;
     color: #211536;
+}
+
+.main_email{
+    position: absolute;
+    width: 73px;
+    height: 20px;
+    left: 416px;
+    top: 282px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #211536;
+}
+
+.main_city{
+    position: absolute;
+    width: 173px;
+    height: 20px;
+    left: 803px;
+    top: 282px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #211536;
+}
+
+.main_number{
+    box-sizing: border-box;
+    position: absolute;
+    width: 367px;
+    height: 58px;
+    left: 29px;
+    top: 312px;
+    border: 1px solid #CDB1FB;
+    border-radius: 4px;
+}
+
+.main_mail{
+    box-sizing: border-box;
+    position: absolute;
+    width: 367px;
+    height: 58px;
+    left: 416px;
+    top: 312px;
+    border: 1px solid #CDB1FB;
+    border-radius: 4px;
+}
+
+.main_kzn{
+    box-sizing: border-box;
+    position: absolute;
+    width: 367px;
+    height: 58px;
+    left: 803px;
+    top: 312px;
+    border: 1px solid #CDB1FB;
+    border-radius: 4px;
 }

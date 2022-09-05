@@ -15,7 +15,11 @@ export function Main(){
                     <input type="text" className='main_input' placeholder='Coca-cola' />
                         <div className='main_contact'>Контактные данные</div>
                         <div className='main_phone'>Телефон</div>
-                        <div className=''></div>
+                        <div className='main_email'>E-mail</div>
+                        <div className='main_city'>Город организатора</div>
+                    <input className='main_number' type="text" placeholder='+7 (999) 555-33-22' />
+                    <input className='main_mail' type="text" placeholder='ivanov@mail.ru'/>
+                    <input className='main_kzn' type="text" placeholder='Казань' />
                 </div>
         </div>
     )
