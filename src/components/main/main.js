@@ -13,7 +13,9 @@ export function Main(){
                         Организатор
                     </div>
                     <input type="text" className='main_input' placeholder='Coca-cola' />
-                        <div className='main_contact'></div>
+                        <div className='main_contact'>Контактные данные</div>
+                        <div className='main_phone'>Телефон</div>
+                        <div className=''></div>
                 </div>
         </div>
     )
