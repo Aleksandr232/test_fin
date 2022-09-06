@@ -13,6 +13,26 @@ export function Main(){
     const [numberError, setNumberError] = useState('Номер не может быть пустым')
     const [cityError, setCityError] = useState('Введите город')
 
+    const emailHandler = (e) =>{
+        setEmail(e.target.value)
+        const re =  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        if (!re.test(String(e.target.value).toLocaleLowerCase())){
+            setEmailError('Некорректный email')
+        }else{
+            setEmailError('')
+        }
+    }
+
+    const phoneHandler = (e)=>{
+        setNumber(e.target.value)
+        const re = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/i;
+        if(!re.test(String(e.target.value).toLocaleLowerCase())){
+            setNumberError('Введите цифры')
+        }else{
+            setNumberError('')
+        }
+    }
+
     const blurHandler = (e) =>{
         // eslint-disable-next-line default-case
         switch (e.target.name) {
@@ -47,9 +67,9 @@ export function Main(){
                         <div className='main_email'>E-mail</div>
                         <div className='main_city'>Город организатора</div>
                         {(emailDirty && emailError) && <div style={{color:"red", position: "absolute",top: 259, left:419}}>{emailError}</div>}
-                    <input onBlur={e => blurHandler(e)} name='phone' className='main_number' type="text" placeholder='+7 (999) 555-33-22' />
+                    <input onChange={e=>phoneHandler(e)} onBlur={e => blurHandler(e)} name='phone' className='main_number' type="text" placeholder='+7 (999) 555-33-22' />
                         {(numberDirty && numberError) && <div style={{color:"red", position: "absolute",top: 259, left:28}}>{numberError}</div>}
-                    <input onBlur={e => blurHandler(e)} name='email' className='main_mail' type="text" placeholder='ivanov@mail.ru'/>
+                    <input onChange={e=>emailHandler(e)} onBlur={e => blurHandler(e)} name='email' className='main_mail' type="text" placeholder='ivanov@mail.ru'/>
                         {(cityDirty && cityError) && <div style={{color:"red", position: "absolute",top: 259, left:804}}>{cityError}</div>}
                     <input onBlur={e => blurHandler(e)} name='city'  className='main_kzn' type="text" placeholder='Казань' />
                     <div className='main_about_info'>Общая информация</div>
