@@ -8,8 +8,10 @@ export function Main(){
     const [number, setNumber] = useState('')
     const [emailDirty, setEmailDirty] = useState(false)
     const [numberDirty, setNumberDirty] = useState(false)
+    const [cityDirty, setCityDirty] = useState(false)
     const [emailError, setEmailError] = useState('email не может быть пустым')
     const [numberError, setNumberError] = useState('Номер не может быть пустым')
+    const [cityError, setCityError] = useState('Введите город')
 
     const blurHandler = (e) =>{
         // eslint-disable-next-line default-case
@@ -17,6 +19,9 @@ export function Main(){
          case 'phone':
             setNumberDirty(true)
             break
+         case 'city':
+            setCityDirty(true)
+            break  
          case 'email':
             setEmailDirty(true)
             break
@@ -45,7 +50,8 @@ export function Main(){
                     <input onBlur={e => blurHandler(e)} name='phone' className='main_number' type="text" placeholder='+7 (999) 555-33-22' />
                         {(numberDirty && numberError) && <div style={{color:"red", position: "absolute",top: 259, left:28}}>{numberError}</div>}
                     <input onBlur={e => blurHandler(e)} name='email' className='main_mail' type="text" placeholder='ivanov@mail.ru'/>
-                    <input className='main_kzn' type="text" placeholder='Казань' />
+                        {(cityDirty && cityError) && <div style={{color:"red", position: "absolute",top: 259, left:804}}>{cityError}</div>}
+                    <input onBlur={e => blurHandler(e)} name='city'  className='main_kzn' type="text" placeholder='Казань' />
                     <div className='main_about_info'>Общая информация</div>
                     <div className='main_title'>Название</div>
                     <input type="text" className='main_input_title' />
