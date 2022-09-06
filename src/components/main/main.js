@@ -2,6 +2,8 @@ import { useState } from 'react'
 
 import './main.scss'
 
+import photo from '../img/photo.png'
+
 export function Main(){
     const [file, setFile] = useState()
     const [email, setEmail] = useState('')
@@ -76,7 +78,10 @@ export function Main(){
                     <div className='main_title'>Название</div>
                     <input type="text" className='main_input_title' />
                         <div className='main_photo'>Фотография</div>
-                    <input type="file" className='main_input_photo' onChange={handleChange} />
+                    <label className='main_input_photo'>
+                        <input type="file" multiple/>
+                        <i className="file_upload"/><img src={photo} alt="" /><i/>
+                    </label>
                         <div className='main_description'>Подробное описание</div>
                     <input type="text" className='main_input_description' />
                 </div>
