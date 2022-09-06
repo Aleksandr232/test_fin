@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import BasicDatePicker from '../datepickers/datepickers'
+import BasicTimePicker from '../timepickers.js/timepickers'
+import Picker from '../pickers/pickers'
+import PickerTwo from '../pickers/pickertwo'
 
 import './main.scss'
 
@@ -104,13 +107,17 @@ export function Main(){
                     <input type="text" className='main_input_description' />
                     <div className='main_time'>
                         <BasicDatePicker/>
+                    <div className='divider'></div>
+                        <BasicTimePicker/>
                     </div>
                     <div className='main_time1'>
-                        
+                        <BasicDatePicker/>
+                    <div className='divider'></div>
+                        <BasicTimePicker/>
                     </div>
-                    <div className='main_time2'>
-                        
-                    </div>
+                        <Picker/>
+                    <div className='divider1'></div>
+                        <PickerTwo/>
                 </div>
         </section>
     )

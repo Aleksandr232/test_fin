@@ -10,9 +10,11 @@ export default function BasicDatePicker() {
   const [value, setValue] = useState(null);
 
   return (
+  <>
     <div className='date'>
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DatePicker
+        label="22.12.2019"
         value={value}
         onChange={(newValue) => {
           setValue(newValue);
@@ -21,5 +23,21 @@ export default function BasicDatePicker() {
       />
     </LocalizationProvider>
     </div>
+    <div className='date1'>
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <DatePicker
+        label="22.12.2019"
+        value={value}
+        onChange={(newValue) => {
+          setValue(newValue);
+        }}
+        renderInput={(params) => <TextField {...params} />}
+      />
+    </LocalizationProvider>
+    </div>
+    </>
   );
 }
+
+
+
