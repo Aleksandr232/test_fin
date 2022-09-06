@@ -4,6 +4,24 @@ import './main.scss'
 
 export function Main(){
     const [file, setFile] = useState()
+    const [email, setEmail] = useState('')
+    const [number, setNumber] = useState('')
+    const [emailDirty, setEmailDirty] = useState(false)
+    const [numberDirty, setNumberDirty] = useState(false)
+    const [emailError, setEmailError] = useState('email не может быть пустым')
+    const [numberError, setNumberError] = useState('Номер не может быть пустым')
+
+    const blurHandler = (e) =>{
+        // eslint-disable-next-line default-case
+        switch (e.target.name) {
+         case 'phone':
+            setNumberDirty(true)
+            break
+         case 'email':
+            setEmailDirty(true)
+            break
+        }
+    }
 
   function handleChange(event) {
     setFile(event.target.files[0])
@@ -23,8 +41,10 @@ export function Main(){
                         <div className='main_phone'>Телефон</div>
                         <div className='main_email'>E-mail</div>
                         <div className='main_city'>Город организатора</div>
-                    <input className='main_number' type="text" placeholder='+7 (999) 555-33-22' />
-                    <input className='main_mail' type="text" placeholder='ivanov@mail.ru'/>
+                        {(emailDirty && emailError) && <div style={{color:"red", position: "absolute",top: 259, left:419}}>{emailError}</div>}
+                    <input onBlur={e => blurHandler(e)} name='phone' className='main_number' type="text" placeholder='+7 (999) 555-33-22' />
+                        {(numberDirty && numberError) && <div style={{color:"red", position: "absolute",top: 259, left:28}}>{numberError}</div>}
+                    <input onBlur={e => blurHandler(e)} name='email' className='main_mail' type="text" placeholder='ivanov@mail.ru'/>
                     <input className='main_kzn' type="text" placeholder='Казань' />
                     <div className='main_about_info'>Общая информация</div>
                     <div className='main_title'>Название</div>
