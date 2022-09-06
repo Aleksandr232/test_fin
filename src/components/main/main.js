@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import BasicDatePicker from '../datepickers/datepickers'
 import BasicTimePicker from '../timepickers.js/timepickers'
 import Picker from '../pickers/pickers'
@@ -8,8 +8,11 @@ import './main.scss'
 
 import photo from '../img/photo.png'
 import white from '../img/white.jpg'
+import { id } from 'date-fns/locale'
 
 export function Main(){
+    const [select, setSelect] = useState('')
+    const [age, setAge] = useState(true)
     const [file, setFile] = useState()
     const [email, setEmail] = useState('')
     const [number, setNumber] = useState('')
@@ -21,6 +24,17 @@ export function Main(){
     const [emailError, setEmailError] = useState('email не может быть пустым')
     const [numberError, setNumberError] = useState('Номер не может быть пустым')
     const [cityError, setCityError] = useState('Введите город')
+
+    useEffect(() => {
+        fetch('http://testwork.rdbx24.ru/api/')
+        .then(response=>response.json())
+        .then(result => {
+            setAge(result)
+            console.log(result)
+        })
+        
+    }, []);
+    
 
     const fileReader = new FileReader();
     fileReader.onloadend = () =>{
@@ -121,12 +135,16 @@ export function Main(){
                     <div onClick={''} className='btn'>
                         <div className='text_btn'>+ Добавить дату</div>
                     </div>
-                    <select className='select-css' id="age">
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="vw">VW</option>
-                            <option value="audi" selected>Audi</option>
+                    <select className='select-css' id="age" onChange={(e)=>{
+                        const selectedAge = e.target.value;
+                        setSelect(selectedAge)
+                    }}>
+                            <option ></option>
+                            <option ></option>
+                            <option ></option>
+                            <option  selected></option>
                     </select>
+                    <div>{age.title}</div>
                 </div>
         </section>
     )
