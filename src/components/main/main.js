@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import BasicDatePicker from '../datepickers/datepickers'
 
 import './main.scss'
 
@@ -101,6 +102,15 @@ export function Main(){
                         <div className='main_img'>{image ? image.name : <img src={white}/>}</div>
                         <div className='main_description'>Подробное описание</div>
                     <input type="text" className='main_input_description' />
+                    <div className='main_time'>
+                        <BasicDatePicker/>
+                    </div>
+                    <div className='main_time1'>
+                        
+                    </div>
+                    <div className='main_time2'>
+                        
+                    </div>
                 </div>
         </section>
     )
