@@ -11,9 +11,23 @@ export function Main(){
     const [emailDirty, setEmailDirty] = useState(false)
     const [numberDirty, setNumberDirty] = useState(false)
     const [cityDirty, setCityDirty] = useState(false)
+    const [image, setImage] = useState()
+    const [imageURL, setImageURL] = useState()
     const [emailError, setEmailError] = useState('email не может быть пустым')
     const [numberError, setNumberError] = useState('Номер не может быть пустым')
     const [cityError, setCityError] = useState('Введите город')
+
+    const fileReader = new FileReader();
+    fileReader.onloadend = () =>{
+        setImageURL(fileReader.result)
+    }
+
+    const handleOnChange = (event) =>{
+        event.preventDefault();
+        const file = event.target.files[0];
+        setImage(file);
+        fileReader.readAsDataURL(file)
+    }
 
     const emailHandler = (e) =>{
         setEmail(e.target.value)
@@ -79,9 +93,11 @@ export function Main(){
                     <input type="text" className='main_input_title' />
                         <div className='main_photo'>Фотография</div>
                     <label className='main_input_photo'>
-                        <input type="file" multiple/>
+                        <input onChange={handleOnChange} type="file" multiple/>
                         <i className="file_upload"/><img src={photo} alt="" /><i/>
                     </label>
+                        <img src={imageURL ? imageURL : ''} alt="" className='main_img' />
+                        <div className='main_img'>{image ? image.name : ""}</div>
                         <div className='main_description'>Подробное описание</div>
                     <input type="text" className='main_input_description' />
                 </div>
