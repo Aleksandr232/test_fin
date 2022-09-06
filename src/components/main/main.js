@@ -118,6 +118,15 @@ export function Main(){
                         <Picker/>
                     <div className='divider1'></div>
                         <PickerTwo/>
+                    <div onClick={''} className='btn'>
+                        <div className='text_btn'>+ Добавить дату</div>
+                    </div>
+                    <select className='select-css' id="age">
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="vw">VW</option>
+                            <option value="audi" selected>Audi</option>
+                    </select>
                 </div>
         </section>
     )

@@ -318,3 +318,38 @@ input[type="file"] {
     background: #CDB1FB;
     border-radius: 5px;
 }
+
+.btn{
+    box-sizing: border-box;
+    position: absolute;
+    width: 182px;
+    height: 58px;
+    left: 30px;
+    top: 1580px;
+    border: 1px solid #9B63F8;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.text_btn{
+    position: absolute;
+    left: 22px;
+    top: 19px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.select-css{
+    box-sizing: border-box;
+    position: absolute;
+    width: 562px;
+    height: 58px;
+    left: 29.8px;
+    top: 1718.08px;
+    border: 1px solid #CDB1FB;
+    border-radius: 4px;
+}
