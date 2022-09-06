@@ -3,6 +3,7 @@ import { useState } from 'react'
 import './main.scss'
 
 import photo from '../img/photo.png'
+import white from '../img/white.jpg'
 
 export function Main(){
     const [file, setFile] = useState()
@@ -96,8 +97,8 @@ export function Main(){
                         <input onChange={handleOnChange} type="file" multiple/>
                         <i className="file_upload"/><img src={photo} alt="" /><i/>
                     </label>
-                        <img src={imageURL ? imageURL : ''} alt="" className='main_img' />
-                        <div className='main_img'>{image ? image.name : ""}</div>
+                        <img src={imageURL ? imageURL : ""} alt="" className='main_img' />
+                        <div className='main_img'>{image ? image.name : <img src={white}/>}</div>
                         <div className='main_description'>Подробное описание</div>
                     <input type="text" className='main_input_description' />
                 </div>
