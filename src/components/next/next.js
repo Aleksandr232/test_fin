@@ -2,6 +2,10 @@ import {useDispatch, useSelector} from 'react-redux'
 
 import './next.scss'
 
+import icon from '../img/icon.png'
+import mail from '../img/mail.png'
+import phone from '../img/phone.png'
+import cityy from '../img/city.png'
 
 export function Next(){
     const text=useSelector(state=>{
@@ -23,10 +27,23 @@ export function Next(){
     })
 
     return(
-        <div className='next'>
-            <p>{text}</p>
-            <p>{num}</p>
-            <p>{city}</p>
-        </div>
+        <section className='next'>
+           <div className='next_text'>Шаг 2</div>
+            <div className='next_center'>
+                <div className='next_panel'>
+                    <img className='icon' src={icon} alt="icon" />
+                    <div className='next_panel_title'>Проверьте ваше мероприятие на наличие ошибок, если все в порядке - отправляйте на модерацию.</div>
+                </div>
+                <div>
+                    <img className='city' src={cityy} alt="city" />
+                    <div className='city_text'>{city}</div>
+                </div>
+                <div className='next_contatct'>Контакты</div>
+                    <img className='phone' src={phone} alt="phone" />
+                    <img className='mail' src={mail} alt="mail" />
+                    <div className='phone_text'>{num}</div>
+                    <div className='mail_text'>{text}</div>
+            </div>
+        </section>
     )
 }

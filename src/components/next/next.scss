@@ -1,8 +1,146 @@
 .next{
     position: absolute;
     width: 1950px;
-    height: 2706px;
+    height: 1300px;
     left: -15px;
     top: -104px;
     background: #F8F8FA;
+}
+
+
+.next_text{
+    position: absolute;
+    width: 126px;
+    height: 49px;
+    left: 405px;
+    top: 207px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 49px;
+    /* identical to box height */
+    color: #351768;
+}
+
+.next_center{
+    position: absolute;
+    width: 1201px;
+    height: 931px;
+    left: 405px;
+    top: 306px;
+    background: #FFFFFF;
+    border-radius: 4px;
+}
+
+.next_panel{
+    position: absolute;
+    width: 1141px;
+    height: 80px;
+    left: 34px;
+    top: 28px;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 25px rgba(155, 99, 248, 0.15);
+    border-radius: 4px;
+}
+
+.icon{
+    position: absolute;
+    left: 25px;
+    top: 19.56px;
+}
+
+.next_panel_title{
+    position: absolute;
+    width: 1035px;
+    height: 19.56px;
+    left:91px;
+    top: 29.33px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #211536;
+}
+
+.next_contatct{
+    position: absolute;
+    width: 82px;
+    height: 20px;
+    left: 98px;
+    top: 430px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height */
+    color: #211536;
+}
+
+.phone{
+    position: absolute;
+    left: 99px;
+    top: 464px;
+}
+
+.mail{
+    position: absolute;
+    left: 99px;
+    top: 493px;
+}
+
+.phone_text{
+    position: absolute;
+    width: 282px;
+    height: 17px;
+    left: 128px;
+    top: 463px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+    color: #211536;
+    opacity: 0.6;
+}
+
+
+.mail_text{
+    position: absolute;
+    width: 282px;
+    height: 17px;
+    left: 128px;
+    top: 490px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+    color: #211536;
+    opacity: 0.6;
+}
+
+.city{
+    position: absolute;
+    left: 99.36px;
+    top: 316.42px;
+}
+
+.city_text{
+    position: absolute;
+    width: 302px;
+    height: 21px;
+    left: 129px;
+    top: 316.42px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #211536;
+    opacity: 0.6;
 }
