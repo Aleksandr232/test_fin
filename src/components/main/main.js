@@ -8,11 +8,11 @@ import './main.scss'
 
 import photo from '../img/photo.png'
 import white from '../img/white.jpg'
-import { id } from 'date-fns/locale'
+/* import { id } from 'date-fns/locale' */
 
 export function Main(){
     const [select, setSelect] = useState('')
-    const [age, setAge] = useState(true)
+    const [age, setAge] = useState([])
     const [file, setFile] = useState()
     const [email, setEmail] = useState('')
     const [number, setNumber] = useState('')
@@ -25,16 +25,27 @@ export function Main(){
     const [numberError, setNumberError] = useState('Номер не может быть пустым')
     const [cityError, setCityError] = useState('Введите город')
 
-    useEffect(() => {
+          
+     /* useEffect(() => {
         fetch('http://testwork.rdbx24.ru/api/')
         .then(response=>response.json())
         .then(result => {
             setAge(result)
             console.log(result)
-        })
+            
+        }) 
         
-    }, []);
+    }, []); */
     
+    window.onload = function (){
+        return fetch('http://testwork.rdbx24.ru/api/')
+           .then(res => res.json())
+           .then(result => {
+             setAge(result);
+             console.log(result);
+             
+           });
+    }
 
     const fileReader = new FileReader();
     fileReader.onloadend = () =>{
@@ -139,12 +150,18 @@ export function Main(){
                         const selectedAge = e.target.value;
                         setSelect(selectedAge)
                     }}>
-                            <option ></option>
+                            <option >{age.id?.title}</option>
                             <option ></option>
                             <option ></option>
                             <option  selected></option>
                     </select>
-                    <div>{age.title}</div>
+                    <input className='main_events' type="text"  />
+                    <div className='btn_close'>
+                        <div className='btn_close_text'>Отменить</div>
+                    </div>
+                    <div className='btn_next'>
+                        <div className='btn_next_text'>Далее</div>
+                    </div>
                 </div>
         </section>
     )

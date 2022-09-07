@@ -353,3 +353,63 @@ input[type="file"] {
     border: 1px solid #CDB1FB;
     border-radius: 4px;
 }
+
+.main_events{
+    position: absolute;
+    top: 1718.08px;
+    left: 611.8px;
+    width: 560px;
+    height: 58px;
+    border: 1px solid #CDB1FB;
+    border-radius: 4px; 
+}
+
+.btn_close{
+    position: absolute;
+    left: 29.8px;
+    top: 1826.08px;
+    border: 1px solid #9B63F8;
+    border-radius: 4px;
+    width: 285px;
+    height: 58px;
+    cursor: pointer; 
+}
+
+.btn_next{
+    position: absolute;
+    left: 334.8px;
+    top: 1826.08px;
+    width: 285px;
+    height: 58px;
+    background: #9B63F8;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn_close_text{
+    position: absolute;
+    top: 19px;
+    left: 101px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height */
+    text-align: center;
+    color: #211536;
+}
+
+.btn_next_text{
+    position: absolute;
+    top: 19px;
+    left: 115px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height */
+    text-align: center;
+    color: #FFFFFF;
+}
