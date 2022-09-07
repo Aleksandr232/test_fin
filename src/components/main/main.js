@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-import {useDispatch, useSelector} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import { inputText, inputNum, inputCity } from '../../redux/action'
+import { useNavigate } from 'react-router-dom'
 import BasicDatePicker from '../datepickers/datepickers'
 import BasicTimePicker from '../timepickers.js/timepickers'
 import Picker from '../pickers/pickers'
@@ -26,6 +27,7 @@ export function Main(){
     const [emailError, setEmailError] = useState('email не может быть пустым')
     const [numberError, setNumberError] = useState('Номер не может быть пустым')
     const [cityError, setCityError] = useState('Введите город')
+    const navigate = useNavigate()
  
           
      /* useEffect(() => {
@@ -49,23 +51,13 @@ export function Main(){
            });
     }
 
-    const text=useSelector(state=>{
-        const {inputReducer} =state;
-        return inputReducer.text;
-        console.log('state >>>>>>', state)
-    })
+    
+    const next = ()=>{
+        navigate('/next')
+    }
 
-    const num=useSelector(state=>{
-        const {inputNumReducer} =state;
-        return inputNumReducer.num;
-        console.log('state >>>>>>', state)
-    })
 
-    const city=useSelector(state=>{
-        const {inputCityReducer} =state;
-        return inputCityReducer.city;
-        console.log('state >>>>>>', state)
-    })
+   
 
     const dispatch = useDispatch();
 
@@ -147,9 +139,6 @@ export function Main(){
                     <input  onChange={e=>emailHandler(e)} onBlur={e => blurHandler(e)} name='email' className='main_mail' type="text" placeholder='ivanov@mail.ru'/>
                         {(cityDirty && cityError) && <div style={{color:"red", position: "absolute",top: 259, left:804}}>{cityError}</div>}
                     <input onChange={(e)=>cityHandler(e)} onBlur={e => blurHandler(e)} name='city'  className='main_kzn' type="text" placeholder='Казань' />
-                    <p>{text}</p>
-                    <p>{num}</p>
-                    <p>{city}</p>
                     <div className='main_about_info'>Общая информация</div>
                     <div className='main_title'>Название</div>
                     <input type="text" className='main_input_title' />
@@ -192,7 +181,7 @@ export function Main(){
                     <div className='btn_close'>
                         <div className='btn_close_text'>Отменить</div>
                     </div>
-                    <div className='btn_next'>
+                    <div onClick={()=>next()} className='btn_next'>
                         <div className='btn_next_text'>Далее</div>
                     </div>
                 </div>
