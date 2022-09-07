@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import {useDispatch, useSelector} from 'react-redux'
+import { inputText, inputNum, inputCity } from '../../redux/action'
 import BasicDatePicker from '../datepickers/datepickers'
 import BasicTimePicker from '../timepickers.js/timepickers'
 import Picker from '../pickers/pickers'
@@ -24,7 +26,7 @@ export function Main(){
     const [emailError, setEmailError] = useState('email не может быть пустым')
     const [numberError, setNumberError] = useState('Номер не может быть пустым')
     const [cityError, setCityError] = useState('Введите город')
-
+ 
           
      /* useEffect(() => {
         fetch('http://testwork.rdbx24.ru/api/')
@@ -47,6 +49,26 @@ export function Main(){
            });
     }
 
+    const text=useSelector(state=>{
+        const {inputReducer} =state;
+        return inputReducer.text;
+        console.log('state >>>>>>', state)
+    })
+
+    const num=useSelector(state=>{
+        const {inputNumReducer} =state;
+        return inputNumReducer.num;
+        console.log('state >>>>>>', state)
+    })
+
+    const city=useSelector(state=>{
+        const {inputCityReducer} =state;
+        return inputCityReducer.city;
+        console.log('state >>>>>>', state)
+    })
+
+    const dispatch = useDispatch();
+
     const fileReader = new FileReader();
     fileReader.onloadend = () =>{
         setImageURL(fileReader.result)
@@ -61,6 +83,7 @@ export function Main(){
 
     const emailHandler = (e) =>{
         setEmail(e.target.value)
+        dispatch(inputText(e.target.value))
         const re =  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
         if (!re.test(String(e.target.value).toLocaleLowerCase())){
             setEmailError('Некорректный email')
@@ -70,6 +93,7 @@ export function Main(){
     }
 
     const phoneHandler = (e)=>{
+        dispatch(inputNum(e.target.value))
         setNumber(e.target.value)
         const re = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/i;
         if(!re.test(String(e.target.value).toLocaleLowerCase())){
@@ -77,6 +101,11 @@ export function Main(){
         }else{
             setNumberError('')
         }
+    }
+
+    const cityHandler = (e)=>{
+        dispatch(inputCity(e.target.value))
+        
     }
 
     const blurHandler = (e) =>{
@@ -115,9 +144,12 @@ export function Main(){
                         {(emailDirty && emailError) && <div style={{color:"red", position: "absolute",top: 259, left:419}}>{emailError}</div>}
                     <input onChange={e=>phoneHandler(e)} onBlur={e => blurHandler(e)} name='phone' className='main_number' type="text" placeholder='+7 (999) 555-33-22' />
                         {(numberDirty && numberError) && <div style={{color:"red", position: "absolute",top: 259, left:28}}>{numberError}</div>}
-                    <input onChange={e=>emailHandler(e)} onBlur={e => blurHandler(e)} name='email' className='main_mail' type="text" placeholder='ivanov@mail.ru'/>
+                    <input  onChange={e=>emailHandler(e)} onBlur={e => blurHandler(e)} name='email' className='main_mail' type="text" placeholder='ivanov@mail.ru'/>
                         {(cityDirty && cityError) && <div style={{color:"red", position: "absolute",top: 259, left:804}}>{cityError}</div>}
-                    <input onBlur={e => blurHandler(e)} name='city'  className='main_kzn' type="text" placeholder='Казань' />
+                    <input onChange={(e)=>cityHandler(e)} onBlur={e => blurHandler(e)} name='city'  className='main_kzn' type="text" placeholder='Казань' />
+                    <p>{text}</p>
+                    <p>{num}</p>
+                    <p>{city}</p>
                     <div className='main_about_info'>Общая информация</div>
                     <div className='main_title'>Название</div>
                     <input type="text" className='main_input_title' />
@@ -143,6 +175,7 @@ export function Main(){
                         <Picker/>
                     <div className='divider1'></div>
                         <PickerTwo/>
+                          
                     <div onClick={''} className='btn'>
                         <div className='text_btn'>+ Добавить дату</div>
                     </div>
