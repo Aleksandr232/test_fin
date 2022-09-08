@@ -1,7 +1,7 @@
 import { INPUT_DATE} from  "./type"
 
 const initialState={
-    date:''
+    date:0
    
     
 }

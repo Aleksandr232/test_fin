@@ -62,7 +62,6 @@ export function Next(){
     return(
         <section className='next'>
             <img src={files}/>
-            <div>{date}</div>
            <div className='next_text'>Шаг 2</div>
             <div className='next_center'>
                 <div className='next_panel'>
@@ -74,7 +73,7 @@ export function Next(){
                     <img className='city' src={cityy} alt="city" />
                         <div className='city_text'>{address}</div>
                     <img className='calender' src={calender} alt="calender" />
-                        <div className='calender_text'></div>
+                        <div className='calender_text'>{date}</div>
                     <img className='times' src={time} alt="" />
                         <div className='times_text'></div>
                 </div>
