@@ -13,7 +13,7 @@ const initialState={
         case INPUT_DATE :
             return{
                 ...state,
-                date: action.date + ''
+                date: action.payload?.date
             }
         default:
                 return state;       

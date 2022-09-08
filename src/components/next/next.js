@@ -68,7 +68,7 @@ export function Next(){
 
     return(
         <section className='next'>
-            <img src={files}/>
+            <img src={files} alt="" />
            <div className='next_text'>Шаг 2</div>
             <div className='next_center'>
                 <div className='next_panel'>
