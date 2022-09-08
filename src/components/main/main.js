@@ -27,6 +27,7 @@ export function Main(){
     const [emailError, setEmailError] = useState('email не может быть пустым')
     const [numberError, setNumberError] = useState('Номер не может быть пустым')
     const [cityError, setCityError] = useState('Введите город')
+    const [value, setValue] = useState()
     const navigate = useNavigate()
  
           
@@ -40,6 +41,11 @@ export function Main(){
         }) 
         
     }, []); */
+
+
+    const clear=()=>{
+        setValue('')
+    }
     
     window.onload = function (){
         return fetch('http://testwork.rdbx24.ru/api/')
@@ -76,6 +82,7 @@ export function Main(){
 
     const titleHandler = (e) =>{
         dispatch(inputTitle(e.target.value))
+        
     }
 
     const emailHandler = (e) =>{
@@ -107,6 +114,7 @@ export function Main(){
 
     const eventHandler = (e)=>{
         dispatch(inputEvent(e.target.value))
+       
         
     }
 
@@ -114,6 +122,8 @@ export function Main(){
         dispatch(inputDesc(e.target.value))
         
     }
+
+   
 
 
     const blurHandler = (e) =>{
@@ -144,20 +154,20 @@ export function Main(){
                     <div className='main_organizer'>
                         Организатор
                     </div>
-                    <input onChange={e=>eventHandler(e)} type="text" className='main_input' placeholder='Coca-cola' />
+                    <input value={value} onChange={e=>eventHandler(e)} type="text" className='main_input' placeholder='Coca-cola' />
                         <div className='main_contact'>Контактные данные</div>
                         <div className='main_phone'>Телефон</div>
                         <div className='main_email'>E-mail</div>
                         <div className='main_city'>Город организатора</div>
                         {(emailDirty && emailError) && <div style={{color:"red", position: "absolute",top: 259, left:419}}>{emailError}</div>}
-                    <input onChange={e=>phoneHandler(e)} onBlur={e => blurHandler(e)} name='phone' className='main_number' type="text" placeholder='+7 (999) 555-33-22' />
+                    <input value={value} onChange={e=>phoneHandler(e)} onBlur={e => blurHandler(e)} name='phone' className='main_number' type="text" placeholder='+7 (999) 555-33-22' />
                         {(numberDirty && numberError) && <div style={{color:"red", position: "absolute",top: 259, left:28}}>{numberError}</div>}
-                    <input  onChange={e=>emailHandler(e)} onBlur={e => blurHandler(e)} name='email' className='main_mail' type="text" placeholder='ivanov@mail.ru'/>
+                    <input value={value} onChange={e=>emailHandler(e)} onBlur={e => blurHandler(e)} name='email' className='main_mail' type="text" placeholder='ivanov@mail.ru'/>
                         {(cityDirty && cityError) && <div style={{color:"red", position: "absolute",top: 259, left:804}}>{cityError}</div>}
-                    <input  onBlur={e => blurHandler(e)} name='city'  className='main_kzn' type="text" placeholder='Казань' />
+                    <input value={value}  onBlur={e => blurHandler(e)} name='city'  className='main_kzn' type="text" placeholder='Казань' />
                     <div className='main_about_info'>Общая информация</div>
                     <div className='main_title'>Название</div>
-                    <input onChange={e=>titleHandler(e)} type="text" className='main_input_title' />
+                    <input value={value} onChange={e=>titleHandler(e)} type="text" className='main_input_title' />
                         <div className='main_photo'>Фотография</div>
                     <label className='main_input_photo'>
                         <input onChange={handleOnChange} type="file" multiple/>
@@ -166,7 +176,7 @@ export function Main(){
                         <img src={imageURL ? imageURL : ""} alt="" className='main_img' />
                         <div className='main_img'>{image ? image.name : <img src={white}/>}</div>
                         <div className='main_description'>Подробное описание</div>
-                    <input onChange={e=>descHandler(e)} type="text" className='main_input_description' />
+                        <input value={value} onChange={e=>descHandler(e)} type="text" className='main_input_description' />
                     <div className='main_time'>
                         <BasicDatePicker/>
                     <div className='divider'></div>
@@ -184,6 +194,8 @@ export function Main(){
                     <div onClick={''} className='btn'>
                         <div className='text_btn'>+ Добавить дату</div>
                     </div>
+                    <div className='rate'>Рейтинг мероприятия</div>
+                    <div className='address'>Адрес мероприятия</div>
                     <select className='select-css' id="age" onChange={(e)=>{
                         const selectedAge = e.target.value;
                         setSelect(selectedAge)
@@ -193,8 +205,8 @@ export function Main(){
                             <option ></option>
                             <option  selected></option>
                     </select>
-                    <input onChange={(e)=>addressHandler(e)} className='main_events' type="text"  />
-                    <div className='btn_close'>
+                    <input value={value} onChange={(e)=>addressHandler(e)} className='main_events' type="text"  />
+                    <div onClick={clear} className='btn_close'>
                         <div className='btn_close_text'>Отменить</div>
                     </div>
                     <div onClick={()=>next()} className='btn_next'>

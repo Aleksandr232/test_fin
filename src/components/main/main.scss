@@ -413,3 +413,37 @@ input[type="file"] {
     text-align: center;
     color: #FFFFFF;
 }
+
+input{
+    text-align:left;
+ }
+
+ .rate{
+    position: absolute;
+    width: 193px;
+    height: 20px;
+    left: 29.8px;
+    top: 1688.08px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height */
+    color: #211536;
+ }
+
+ .address{
+    position: absolute;
+    width: 176px;
+    height: 20px;
+    left: 611.8px;
+    top: 1688.08px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height */
+    color: #211536;
+ }
