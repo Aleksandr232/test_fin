@@ -6,24 +6,45 @@ import icon from '../img/icon.png'
 import mail from '../img/mail.png'
 import phone from '../img/phone.png'
 import cityy from '../img/city.png'
+import time from '../img/time.png'
+import calender from '../img/calender.png'
+
 
 export function Next(){
     const text=useSelector(state=>{
         const {inputReducer} =state;
         return inputReducer.text;
-        console.log('state >>>>>>', state)
+        
     })
 
     const num=useSelector(state=>{
         const {inputNumReducer} =state;
         return inputNumReducer.num;
-        console.log('state >>>>>>', state)
+        
     })
 
-    const city=useSelector(state=>{
-        const {inputCityReducer} =state;
-        return inputCityReducer.city;
-        console.log('state >>>>>>', state)
+    const address=useSelector(state=>{
+        const {inputAddressReducer} =state;
+        return inputAddressReducer.address;
+      
+    })
+
+    const title=useSelector(state=>{
+        const {inputTitleReducer} =state;
+        return inputTitleReducer.title;
+        
+    })
+
+    const event=useSelector(state=>{
+        const {inputEventReducer} =state;
+        return inputEventReducer.event;
+        
+    })
+
+    const desc=useSelector(state=>{
+        const {inputDescReducer} = state;
+        return inputDescReducer.desc;
+        
     })
 
     return(
@@ -34,15 +55,23 @@ export function Next(){
                     <img className='icon' src={icon} alt="icon" />
                     <div className='next_panel_title'>Проверьте ваше мероприятие на наличие ошибок, если все в порядке - отправляйте на модерацию.</div>
                 </div>
+                <div className='next_title'>{title}</div>
                 <div>
                     <img className='city' src={cityy} alt="city" />
-                    <div className='city_text'>{city}</div>
+                        <div className='city_text'>{address}</div>
+                    <img className='calender' src={calender} alt="calender" />
+                        <div className='calender_text'></div>
+                    <img className='times' src={time} alt="" />
+                        <div className='times_text'></div>
                 </div>
                 <div className='next_contatct'>Контакты</div>
                     <img className='phone' src={phone} alt="phone" />
                     <img className='mail' src={mail} alt="mail" />
                     <div className='phone_text'>{num}</div>
                     <div className='mail_text'>{text}</div>
+                    <div className='next_o'>{event}</div>
+                    <div className='next_o_title'>Организатор мероприятия</div>
+                    <div className='next_description'>{desc}</div>
             </div>
         </section>
     )

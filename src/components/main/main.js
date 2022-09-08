@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import {useDispatch} from 'react-redux'
-import { inputText, inputNum, inputCity } from '../../redux/action'
+import { inputText, inputNum, inputAddress, inputTitle, inputEvent, inputDesc } from '../../redux/action'
 import { useNavigate } from 'react-router-dom'
 import BasicDatePicker from '../datepickers/datepickers'
 import BasicTimePicker from '../timepickers.js/timepickers'
@@ -73,6 +73,10 @@ export function Main(){
         fileReader.readAsDataURL(file)
     }
 
+    const titleHandler = (e) =>{
+        dispatch(inputTitle(e.target.value))
+    }
+
     const emailHandler = (e) =>{
         setEmail(e.target.value)
         dispatch(inputText(e.target.value))
@@ -95,10 +99,21 @@ export function Main(){
         }
     }
 
-    const cityHandler = (e)=>{
-        dispatch(inputCity(e.target.value))
+    const addressHandler = (e)=>{
+        dispatch(inputAddress(e.target.value))
         
     }
+
+    const eventHandler = (e)=>{
+        dispatch(inputEvent(e.target.value))
+        
+    }
+
+    const descHandler = (e)=>{
+        dispatch(inputDesc(e.target.value))
+        
+    }
+
 
     const blurHandler = (e) =>{
         // eslint-disable-next-line default-case
@@ -128,7 +143,7 @@ export function Main(){
                     <div className='main_organizer'>
                         Организатор
                     </div>
-                    <input type="text" className='main_input' placeholder='Coca-cola' />
+                    <input onChange={e=>eventHandler(e)} type="text" className='main_input' placeholder='Coca-cola' />
                         <div className='main_contact'>Контактные данные</div>
                         <div className='main_phone'>Телефон</div>
                         <div className='main_email'>E-mail</div>
@@ -138,10 +153,10 @@ export function Main(){
                         {(numberDirty && numberError) && <div style={{color:"red", position: "absolute",top: 259, left:28}}>{numberError}</div>}
                     <input  onChange={e=>emailHandler(e)} onBlur={e => blurHandler(e)} name='email' className='main_mail' type="text" placeholder='ivanov@mail.ru'/>
                         {(cityDirty && cityError) && <div style={{color:"red", position: "absolute",top: 259, left:804}}>{cityError}</div>}
-                    <input onChange={(e)=>cityHandler(e)} onBlur={e => blurHandler(e)} name='city'  className='main_kzn' type="text" placeholder='Казань' />
+                    <input  onBlur={e => blurHandler(e)} name='city'  className='main_kzn' type="text" placeholder='Казань' />
                     <div className='main_about_info'>Общая информация</div>
                     <div className='main_title'>Название</div>
-                    <input type="text" className='main_input_title' />
+                    <input onChange={e=>titleHandler(e)} type="text" className='main_input_title' />
                         <div className='main_photo'>Фотография</div>
                     <label className='main_input_photo'>
                         <input onChange={handleOnChange} type="file" multiple/>
@@ -150,7 +165,7 @@ export function Main(){
                         <img src={imageURL ? imageURL : ""} alt="" className='main_img' />
                         <div className='main_img'>{image ? image.name : <img src={white}/>}</div>
                         <div className='main_description'>Подробное описание</div>
-                    <input type="text" className='main_input_description' />
+                    <input onChange={e=>descHandler(e)} type="text" className='main_input_description' />
                     <div className='main_time'>
                         <BasicDatePicker/>
                     <div className='divider'></div>
@@ -177,7 +192,7 @@ export function Main(){
                             <option ></option>
                             <option  selected></option>
                     </select>
-                    <input className='main_events' type="text"  />
+                    <input onChange={(e)=>addressHandler(e)} className='main_events' type="text"  />
                     <div className='btn_close'>
                         <div className='btn_close_text'>Отменить</div>
                     </div>

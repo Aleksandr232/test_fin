@@ -1,10 +1,17 @@
 import { combineReducers } from "redux";
 import { inputReducer } from "./inputReducer";
 import { inputNumReducer } from "./inputNumReducer";
-import { inputCityReducer } from "./inputCityReducer";
+import { inputAddressReducer} from "./inputAddressReducer";
+import { inputTitleReducer } from "./inputTitleReducer";
+import { inputEventReducer } from "./inputEventReducer";
+import { inputDescReducer} from "./inputDescReducer";
+
 
 export const rootReducer=combineReducers({
      inputReducer,
      inputNumReducer,
-     inputCityReducer
+     inputAddressReducer,
+     inputTitleReducer,
+     inputEventReducer,
+     inputDescReducer
 });
