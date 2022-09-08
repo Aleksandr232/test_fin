@@ -5,7 +5,8 @@ import {
   INPUT_TITLE,
   INPUT_EVENT,
   INPUT_DESC,
-  INPUT_IMG
+  INPUT_IMG,
+  INPUT_DATE
 } from "./type";
 
 export function inputText(text) {
@@ -55,5 +56,12 @@ export function inputImg(img) {
     return {
       type: INPUT_IMG,
       img,
+    };
+  }
+
+  export function inputDate(date) {
+    return {
+      type: INPUT_DATE,
+      date,
     };
   }

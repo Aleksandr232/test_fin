@@ -53,9 +53,16 @@ export function Next(){
         
     })
 
+    const date=useSelector(state=>{
+        const {inputDateReducer} = state;
+        return inputDateReducer.date;
+        
+    })
+
     return(
         <section className='next'>
             <img src={files}/>
+            <div>{date}</div>
            <div className='next_text'>Шаг 2</div>
             <div className='next_center'>
                 <div className='next_panel'>

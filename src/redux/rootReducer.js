@@ -6,6 +6,7 @@ import { inputTitleReducer } from "./inputTitleReducer";
 import { inputEventReducer } from "./inputEventReducer";
 import { inputDescReducer} from "./inputDescReducer";
 import { inputImgReducer } from "./inputImgReducer";
+import { inputDateReducer } from "./inputDateReducer";
 
 
 export const rootReducer=combineReducers({
@@ -15,5 +16,6 @@ export const rootReducer=combineReducers({
      inputTitleReducer,
      inputEventReducer,
      inputDescReducer,
-     inputImgReducer
+     inputImgReducer,
+     inputDateReducer
 });
