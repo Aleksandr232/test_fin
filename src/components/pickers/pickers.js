@@ -14,7 +14,7 @@ export default function Picker() {
   const dispatch = useDispatch();
 
   const dateHandler = (e) =>{
-    dispatch(inputDate(e.target?.value))
+    dispatch(inputDate(e.target?.date))
     setValue(e);
 }
   return (

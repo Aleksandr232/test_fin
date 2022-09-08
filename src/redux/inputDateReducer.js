@@ -1,7 +1,7 @@
 import { INPUT_DATE} from  "./type"
 
 const initialState={
-    date:0
+    date: ''
    
     
 }
@@ -13,7 +13,7 @@ const initialState={
         case INPUT_DATE :
             return{
                 ...state,
-                date: action.date
+                date: action.date + ''
             }
         default:
                 return state;       

@@ -1,4 +1,5 @@
 import {useDispatch, useSelector} from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 import './next.scss'
 
@@ -11,6 +12,7 @@ import calender from '../img/calender.png'
 
 
 export function Next(){
+    const navigate = useNavigate()
     const text=useSelector(state=>{
         const {inputReducer} =state;
         return inputReducer.text;
@@ -59,6 +61,11 @@ export function Next(){
         
     })
 
+    const Back =()=>{
+        navigate('/')
+      }
+    
+
     return(
         <section className='next'>
             <img src={files}/>
@@ -85,6 +92,12 @@ export function Next(){
                     <div className='next_o'>{event}</div>
                     <div className='next_o_title'>Организатор мероприятия</div>
                     <div className='next_description'>{desc}</div>
+                    <div onClick={(e)=>Back(e)} className='btn_back'>
+                        <div className='btn_back_text'>Назад</div>
+                    </div>
+                    <div className='btn_forward'>
+                        <div className='btn_forward_text'>Отправить на модерацию</div>
+                    </div>
             </div>
         </section>
     )
