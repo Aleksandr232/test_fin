@@ -47,8 +47,15 @@ export function Next(){
         
     })
 
+    const files=useSelector(state=>{
+        const {inputImgReducer} = state;
+        return inputImgReducer.files;
+        
+    })
+
     return(
         <section className='next'>
+            <img src={files}/>
            <div className='next_text'>Шаг 2</div>
             <div className='next_center'>
                 <div className='next_panel'>

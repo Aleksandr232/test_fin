@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import {useDispatch} from 'react-redux'
-import { inputText, inputNum, inputAddress, inputTitle, inputEvent, inputDesc } from '../../redux/action'
+import { inputText, inputNum, inputAddress, inputTitle, inputEvent, inputDesc, inputImg } from '../../redux/action'
 import { useNavigate } from 'react-router-dom'
 import BasicDatePicker from '../datepickers/datepickers'
 import BasicTimePicker from '../timepickers.js/timepickers'
@@ -66,9 +66,10 @@ export function Main(){
         setImageURL(fileReader.result)
     }
 
-    const handleOnChange = (event) =>{
-        event.preventDefault();
-        const file = event.target.files[0];
+    const handleOnChange = (e) =>{
+        dispatch(inputImg(e.target.files[0]))
+        e.preventDefault();
+        const file = e.target.files[0];
         setImage(file);
         fileReader.readAsDataURL(file)
     }

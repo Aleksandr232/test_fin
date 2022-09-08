@@ -4,7 +4,8 @@ import {
   INPUT_ADDRESS,
   INPUT_TITLE,
   INPUT_EVENT,
-  INPUT_DESC
+  INPUT_DESC,
+  INPUT_IMG
 } from "./type";
 
 export function inputText(text) {
@@ -48,3 +49,11 @@ export function inputDesc(desc) {
     desc,
   };
 }
+
+
+export function inputImg(img) {
+    return {
+      type: INPUT_IMG,
+      img,
+    };
+  }
