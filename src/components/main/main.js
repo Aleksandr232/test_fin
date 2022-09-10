@@ -15,7 +15,7 @@ import white from '../img/white.jpg'
 
 export function Main(){
     const [select, setSelect] = useState('')
-    const [age, setAge] = useState([])
+    const [age, setAge] = useState()
     const [file, setFile] = useState()
     const [email, setEmail] = useState('')
     const [number, setNumber] = useState('')
@@ -31,24 +31,15 @@ export function Main(){
     const navigate = useNavigate()
  
           
-     /* useEffect(() => {
-        fetch('http://testwork.rdbx24.ru/api/')
+/*      useEffect(() => {
+        fetch('http://localhost:3001/api/age')
         .then(response=>response.json())
-        .then(result => {
-            setAge(result)
-            console.log(result)
-            
-        }) 
+        .then(response => setAge(response.age))
+        console.log()
         
-    }, []); */
-
-
-    const clear=()=>{
-        setValue('')
-    }
-    
-    window.onload = function (){
-        return fetch('http://testwork.rdbx24.ru/api/')
+    }, []);   */
+    function api (){
+        return fetch('http://localhost:3000/api/age')
            .then(res => res.json())
            .then(result => {
              setAge(result);
@@ -57,6 +48,13 @@ export function Main(){
            });
     }
 
+
+
+    const clear=()=>{
+        setValue('')
+    }
+    
+   
     
     const next = ()=>{
         navigate('/next')
@@ -200,10 +198,10 @@ export function Main(){
                         const selectedAge = e.target.value;
                         setSelect(selectedAge)
                     }}>
-                            <option >{age.id?.title}</option>
+                            <option key={age}></option>
                             <option ></option>
                             <option ></option>
-                            <option  selected></option>
+                            <option ></option>
                     </select>
                     <input value={value} onChange={(e)=>addressHandler(e)} className='main_events' type="text"  />
                     <div onClick={clear} className='btn_close'>
